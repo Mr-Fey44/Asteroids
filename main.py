@@ -7,9 +7,7 @@ import constants as con
 def main():
     pg.init()
     screen = pg.display.set_mode((con.SCREEN_WIDTH, con.SCREEN_HEIGHT))
-    print("Starting Asteroids!")
-    print(f'Screen width: {con.SCREEN_WIDTH}')
-    print(f'Screen height: {con.SCREEN_HEIGHT}')
+
     H = 0
     while H == 0:
         for event in pg.event.get():
