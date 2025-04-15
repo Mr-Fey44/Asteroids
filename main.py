@@ -1,21 +1,23 @@
 # this allows us to use code from
 # the open-source pygame library
 # throughout this file
-import pygame as pg
-import constants as con
+import pygame
+import constants
+from player import Player
 
 def main():
-    pg.init()
-    screen = pg.display.set_mode((con.SCREEN_WIDTH, con.SCREEN_HEIGHT))
-    clock = pg.time.Clock()
+    pygame.init()
+    screen = pygame.display.set_mode((constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT))
+    clock = pygame.time.Clock()
     dt = 0
-    H = 0
-    while H == 0:
-        for event in pg.event.get():
-            if event.type == pg.QUIT:
+    player = Player(constants.SCREEN_WIDTH/2, constants.SCREEN_HEIGHT/2)
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
                 return
-        pg.Surface.fill(screen, color = "black", rect = None)
-        pg.display.flip()
+        screen.fill(color = "black")
+        player.draw(screen)
+        pygame.display.flip()
         # limit the framerate to 60 FPS
         dt = clock.tick(60)/1000
 
