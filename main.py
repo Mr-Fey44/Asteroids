@@ -38,7 +38,7 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 print(f'You scored {score.score} points!')
-                return
+                sys.exit()
 
         updatedable.update(dt)
 
